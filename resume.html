@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임재현 - 이력서</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', 'Segoe UI', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* 헤더 */
+        .header {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 40%, #2a2a2a 70%, #111 100%);
+            color: #fff;
+            padding: 60px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(254, 229, 0, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 6px;
+            letter-spacing: 4px;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            color: #FEE500;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .header .tagline {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        .contact-bar {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+            font-size: 0.9rem;
+        }
+
+        .contact-bar a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-bar a:hover {
+            color: #FEE500;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+        }
+
+        .contact-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+
+        /* 카카오톡 버튼 */
+        .kakao-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 28px;
+            padding: 14px 32px;
+            background: #FEE500;
+            color: #3C1E1E;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(254, 229, 0, 0.3);
+        }
+
+        .kakao-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(254, 229, 0, 0.45);
+        }
+
+        .kakao-btn:active {
+            transform: translateY(0);
+        }
+
+        .kakao-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* 본문 */
+        .body {
+            padding: 48px 50px;
+        }
+
+        .section {
+            margin-bottom: 42px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #FEE500;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 6px;
+        }
+
+        .section-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 24px;
+        }
+
+        .divider {
+            width: 40px;
+            height: 3px;
+            background: #FEE500;
+            margin-bottom: 24px;
+            border-radius: 2px;
+        }
+
+        /* 프로필 */
+        .profile-text {
+            font-size: 1rem;
+            color: #475569;
+            line-height: 1.9;
+        }
+
+        .profile-text strong {
+            color: #1a1a2e;
+        }
+
+        /* 하이라이트 박스 */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .highlight-box {
+            text-align: center;
+            padding: 24px 16px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .highlight-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .highlight-number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #1a1a1a;
+        }
+
+        .highlight-number span {
+            font-size: 1rem;
+            color: #FEE500;
+        }
+
+        .highlight-label {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* 경력 카드 */
+        .experience-item {
+            margin-bottom: 28px;
+            padding: 28px;
+            background: #fafbfc;
+            border-radius: 12px;
+            border: 1px solid #e8ecf1;
+            transition: box-shadow 0.2s;
+        }
+
+        .experience-item:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .exp-company {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+
+        .exp-period {
+            font-size: 0.8rem;
+            color: #fff;
+            background: #222;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .exp-role {
+            font-size: 0.95rem;
+            color: #FEE500;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .exp-desc {
+            font-size: 0.9rem;
+            color: #475569;
+            margin-bottom: 14px;
+            line-height: 1.8;
+        }
+
+        .exp-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .exp-list li {
+            font-size: 0.9rem;
+            color: #475569;
+            padding: 5px 0 5px 20px;
+            position: relative;
+        }
+
+        .exp-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 13px;
+            width: 8px;
+            height: 8px;
+            background: #FEE500;
+            border-radius: 50%;
+        }
+
+        /* 학력 */
+        .education-item {
+            padding: 24px 28px;
+            background: #fafbfc;
+            border-radius: 12px;
+            border: 1px solid #e8ecf1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .edu-info h3 {
+            font-size: 1.1rem;
+            color: #1a1a2e;
+            font-weight: 700;
+        }
+
+        .edu-info p {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 2px;
+        }
+
+        .edu-badge {
+            font-size: 0.8rem;
+            color: #1a1a1a;
+            background: #FFF9C4;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* 스킬 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .skill-card {
+            padding: 20px;
+            background: #fafbfc;
+            border-radius: 10px;
+            border: 1px solid #e8ecf1;
+        }
+
+        .skill-card h4 {
+            font-size: 0.9rem;
+            color: #1a1a2e;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            font-size: 0.82rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* 자격증 */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .cert-item {
+            padding: 20px 24px;
+            background: #fafbfc;
+            border-radius: 10px;
+            border: 1px solid #e8ecf1;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .cert-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #222, #FEE500);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .cert-text h4 {
+            font-size: 0.95rem;
+            color: #1a1a2e;
+            font-weight: 700;
+        }
+
+        .cert-text p {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        /* 강점 */
+        .strengths {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .strength-item {
+            text-align: center;
+            padding: 28px 16px;
+            background: #fafbfc;
+            border-radius: 12px;
+            border: 1px solid #e8ecf1;
+            transition: transform 0.2s;
+        }
+
+        .strength-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .strength-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .strength-item h4 {
+            font-size: 0.9rem;
+            color: #1a1a2e;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .strength-item p {
+            font-size: 0.78rem;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        /* 푸터 */
+        .footer {
+            text-align: center;
+            padding: 28px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+            background: #fafbfc;
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 36px 24px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .body {
+                padding: 28px 24px;
+            }
+
+            .highlights {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+
+            .highlight-number {
+                font-size: 1.4rem;
+            }
+
+            .skills-grid,
+            .cert-grid,
+            .strengths {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-header {
+                flex-direction: column;
+            }
+
+            .contact-bar {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 -->
+        <div class="header">
+            <div class="header-content">
+                <h1>임재현</h1>
+                <div class="subtitle">NURSE &amp; ENTERTAINMENT SPECIALIST</div>
+                <p class="tagline">
+                    삼성서울병원에서 15년 가까이 다져온 임상 전문성,<br>
+                    YG엔터테인먼트에서 증명한 유연함과 소통력.<br>
+                    <strong style="color:#FEE500;">"병원도, 무대 뒤도 경험한 간호사 &mdash; 어디서든 빛나는 사람."</strong>
+                </p>
+                <div class="contact-bar">
+                    <div class="contact-item">
+                        <div class="contact-icon">&#9993;</div>
+                        <a href="mailto:charmingroo@gmail.com">charmingroo@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">&#9742;</div>
+                        <span>010-2517-0057</span>
+                    </div>
+                </div>
+                <a href="https://open.kakao.com/o/sQeCsKni" target="_blank" class="kakao-btn">
+                    <svg viewBox="0 0 24 24" fill="#3C1E1E"><path d="M12 3C6.48 3 2 6.54 2 10.84c0 2.77 1.86 5.21 4.68 6.6-.15.56-.97 3.6-.99 3.84 0 0-.02.17.09.24.11.06.24.01.24.01.32-.04 3.7-2.44 4.28-2.86.55.08 1.11.12 1.7.12 5.52 0 10-3.54 10-7.95C22 6.54 17.52 3 12 3z"/></svg>
+                    카카오톡으로 연락하기
+                </a>
+            </div>
+        </div>
+
+        <!-- 본문 -->
+        <div class="body">
+
+            <!-- 핵심 요약 -->
+            <div class="section">
+                <div class="section-title">About</div>
+                <div class="section-heading">프로필 요약</div>
+                <div class="divider"></div>
+                <p class="profile-text">
+                    <strong>총 15년 이상의 경력</strong>을 보유한 간호 전문가입니다.
+                    대한민국 최고 수준의 의료기관인 <strong>삼성서울병원</strong>에서 14년 4개월간 근무하며
+                    중증 환자 간호, 다학제 팀 협업, 후배 간호사 교육 등 폭넓은 임상 경험을 쌓았습니다.
+                    이후 <strong>YG엔터테인먼트</strong>에서 1년 3개월간 근무하며 엔터테인먼트 산업 특유의
+                    빠른 의사결정 환경과 아티스트 건강 관리라는 특수한 영역에서 역량을 발휘했습니다.
+                    의료와 엔터테인먼트, 두 세계를 모두 경험한 <strong>유일무이한 커리어</strong>의 소유자입니다.
+                </p>
+
+                <div class="highlights">
+                    <div class="highlight-box">
+                        <div class="highlight-number">15<span>+</span></div>
+                        <div class="highlight-label">총 경력 (년)</div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-number">14.4<span>년</span></div>
+                        <div class="highlight-label">삼성서울병원</div>
+                    </div>
+                    <div class="highlight-box">
+                        <div class="highlight-number">2<span>개</span></div>
+                        <div class="highlight-label">보유 자격증</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 경력 -->
+            <div class="section">
+                <div class="section-title">Experience</div>
+                <div class="section-heading">경력 사항</div>
+                <div class="divider"></div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-company">삼성서울병원</div>
+                        <div class="exp-period">14년 4개월</div>
+                    </div>
+                    <div class="exp-role">간호사 (Registered Nurse)</div>
+                    <p class="exp-desc">
+                        국내 최상위 의료기관에서 장기간 근무하며 높은 수준의 임상 역량과
+                        팀워크, 리더십을 갖춘 간호 전문가로 성장했습니다.
+                    </p>
+                    <ul class="exp-list">
+                        <li>중증 환자 대상 전문 간호 수행 및 상태 모니터링</li>
+                        <li>다학제 의료진(의사, 약사, 영양사 등)과의 긴밀한 협업</li>
+                        <li>신규 간호사 프리셉터 및 실습 교육 담당</li>
+                        <li>환자 및 보호자 대상 건강 교육 및 퇴원 후 관리 상담</li>
+                        <li>응급 상황 대응 및 위기관리 프로토콜 숙달</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-company">YG엔터테인먼트</div>
+                        <div class="exp-period">1년 3개월</div>
+                    </div>
+                    <div class="exp-role">사내 건강관리 / 엔터테인먼트 업무</div>
+                    <p class="exp-desc">
+                        국내 대표 엔터테인먼트 기업에서 의료 전문성을 기반으로
+                        아티스트와 직원들의 건강 관리 업무를 수행했습니다.
+                    </p>
+                    <ul class="exp-list">
+                        <li>아티스트 및 임직원 건강 상태 관리 및 상담</li>
+                        <li>공연·촬영 현장 응급 대응 체계 운영</li>
+                        <li>엔터테인먼트 산업 특성에 맞춘 유연한 스케줄 관리</li>
+                        <li>빠른 의사결정 환경에서의 효율적인 업무 수행</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 학력 -->
+            <div class="section">
+                <div class="section-title">Education</div>
+                <div class="section-heading">학력</div>
+                <div class="divider"></div>
+                <div class="education-item">
+                    <div class="edu-info">
+                        <h3>간호학 전공</h3>
+                        <p>4년제 대학교 졸업</p>
+                    </div>
+                    <div class="edu-badge">학사 졸업</div>
+                </div>
+            </div>
+
+            <!-- 핵심 역량 -->
+            <div class="section">
+                <div class="section-title">Core Skills</div>
+                <div class="section-heading">핵심 역량</div>
+                <div class="divider"></div>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h4>임상 간호</h4>
+                        <p>15년 이상의 임상 경험을 바탕으로 한 전문적인 환자 사정, 간호 중재 및 평가 능력</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>응급 대응</h4>
+                        <p>삼성서울병원 수준의 응급 상황 판단력과 신속한 프로토콜 수행 역량</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>커뮤니케이션</h4>
+                        <p>의료진, 아티스트, 경영진 등 다양한 계층과의 원활한 소통 및 조율 능력</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>교육 & 리더십</h4>
+                        <p>후배 간호사 교육, 프리셉터 경험을 통해 갖춘 멘토링 및 팀 리딩 역량</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 자격증 -->
+            <div class="section">
+                <div class="section-title">Certifications</div>
+                <div class="section-heading">자격증</div>
+                <div class="divider"></div>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <div class="cert-icon">+</div>
+                        <div class="cert-text">
+                            <h4>간호사 면허</h4>
+                            <p>보건복지부 발급</p>
+                        </div>
+                    </div>
+                    <div class="cert-item">
+                        <div class="cert-icon">&#9737;</div>
+                        <div class="cert-text">
+                            <h4>운전면허 2종</h4>
+                            <p>경찰청 발급</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 강점 키워드 -->
+            <div class="section">
+                <div class="section-title">Strengths</div>
+                <div class="section-heading">차별화 포인트</div>
+                <div class="divider"></div>
+                <div class="strengths">
+                    <div class="strength-item">
+                        <div class="strength-icon">&#9879;</div>
+                        <h4>검증된 전문성</h4>
+                        <p>삼성서울병원 14년,<br>대한민국 최고 수준의<br>임상 경험</p>
+                    </div>
+                    <div class="strength-item">
+                        <div class="strength-icon">&#9733;</div>
+                        <h4>크로스오버 경력</h4>
+                        <p>의료 + 엔터테인먼트<br>두 업계를 넘나드는<br>유일무이한 커리어</p>
+                    </div>
+                    <div class="strength-item">
+                        <div class="strength-icon">&#9889;</div>
+                        <h4>적응력 & 유연성</h4>
+                        <p>병원에서 엔터사까지,<br>어떤 환경에서도<br>빠르게 적응</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 푸터 -->
+        <div class="footer">
+            &copy; 2026 임재현 &middot; All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
